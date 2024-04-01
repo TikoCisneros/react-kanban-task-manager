@@ -1,3 +1,4 @@
+import { useShallow } from 'zustand/react/shallow';
 import { ColumnType, TaskModel } from '../domain';
 import { useTasksStore } from '../stores/tasks.store';
 
@@ -11,7 +12,7 @@ type UseColumnModel = {
 };
 
 export const useColumnModel = ({ column }: UseColumnModelOptions): UseColumnModel => {
-  const tasks = useTasksStore((state) => state.findTasksByColumnType(column));
+  const tasks = useTasksStore(useShallow((state) => state.findTasksByColumnType(column)));
   const changeTaskColumnType = useTasksStore((state) => state.setTaskColumnType);
 
   return {
