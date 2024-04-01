@@ -1,13 +1,14 @@
 import { AddIcon } from '@chakra-ui/icons';
 import { Button, Text } from '@chakra-ui/react';
-import { useTasksStore } from '../stores/tasks.store';
+import { useModalsStore } from '../stores/modals.store';
 
 const AddTaskBtn = () => {
-  const createTask = useTasksStore((state) => state.createTask);
+  const openModal = useModalsStore((state) => state.openModal);
+  /* const createTask = useTasksStore((state) => state.createTask);
 
   function handleAddTask() {
     createTask({ title: 'Demo task', description: 'Demo task description' });
-  }
+  } */
 
   return (
     <Button
@@ -16,7 +17,7 @@ const AddTaskBtn = () => {
       fontSize="sm"
       fontWeight={600}
       colorScheme="purple"
-      onClick={handleAddTask}
+      onClick={() => openModal('add-task')}
     >
       <Text display={{ base: 'none', md: 'inline-flex' }} mr={2}>
         Add new task

@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import MainLayout from './layouts/MainLayout';
 import Dashboard from './pages/Dashboard';
+import Modals from './components/Modals';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <MainLayout>
         <Dashboard />
       </MainLayout>
+      <Modals />
     </ChakraProvider>
   );
 }
